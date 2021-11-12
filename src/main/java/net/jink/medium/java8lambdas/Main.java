@@ -8,8 +8,8 @@ public class Main {
 
         List<Animal> animals = Arrays.asList(new Frog(), new Kangaroo(), new Fish());
 
-        AnimalMatcher hopMatcher = animal -> animal.canHop();
-        AnimalMatcher swimMatcher = animal -> animal.canSwim();
+        AnimalMatcher hopMatcher = Animal::canHop;
+        AnimalMatcher swimMatcher = Animal::canSwim;
 
         for (Animal animal : animals) {
             if (hopMatcher.matches(animal)) {
