@@ -12,10 +12,10 @@ public class Main {
         AnimalMatcher swimMatcher = Animal::canSwim;
 
         for (Animal animal : animals) {
-            if (hopMatcher.matches(animal)) {
+            if (hopMatcher.test(animal)) {
                 System.out.println(animal.getName() + " can hop!");
             }
-            if (swimMatcher.matches(animal)) {
+            if (swimMatcher.test(animal)) {
                 System.out.println(animal.getName() + " can swim!");
             }
         }
