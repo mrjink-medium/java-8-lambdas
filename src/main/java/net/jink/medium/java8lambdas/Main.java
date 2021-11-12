@@ -8,18 +8,18 @@ public class Main {
 
         List<Animal> animals = Arrays.asList(new Frog(), new Kangaroo(), new Fish());
 
-        AnimalMatcher hopMatcher = new AnimalMatcher() {
-            @Override
-            public boolean matches(Animal animal) {
+        AnimalMatcher hopMatcher =
+
+                                  (Animal animal) -> {
                 return animal.canHop();
             }
-        };
-        AnimalMatcher swimMatcher = new AnimalMatcher() {
-            @Override
-            public boolean matches(Animal animal) {
+        ;
+        AnimalMatcher swimMatcher =
+
+                                  (Animal animal) -> {
                 return animal.canSwim();
             }
-        };
+        ;
 
         for (Animal animal : animals) {
             if (hopMatcher.matches(animal)) {
