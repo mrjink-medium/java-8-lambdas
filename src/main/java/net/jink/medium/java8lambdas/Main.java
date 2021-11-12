@@ -8,8 +8,18 @@ public class Main {
 
         List<Animal> animals = Arrays.asList(new Frog(), new Kangaroo(), new Fish());
 
-        AnimalMatcher hopMatcher = new HopMatcher();
-        AnimalMatcher swimMatcher = new SwimMatcher();
+        AnimalMatcher hopMatcher = new AnimalMatcher() {
+            @Override
+            public boolean matches(Animal animal) {
+                return animal.canHop();
+            }
+        };
+        AnimalMatcher swimMatcher = new AnimalMatcher() {
+            @Override
+            public boolean matches(Animal animal) {
+                return animal.canSwim();
+            }
+        };
 
         for (Animal animal : animals) {
             if (hopMatcher.matches(animal)) {
@@ -18,20 +28,6 @@ public class Main {
             if (swimMatcher.matches(animal)) {
                 System.out.println(animal.getName() + " can swim!");
             }
-        }
-    }
-
-    private static class HopMatcher implements AnimalMatcher {
-        @Override
-        public boolean matches(Animal animal) {
-            return animal.canHop();
-        }
-    }
-
-    private static class SwimMatcher implements AnimalMatcher {
-        @Override
-        public boolean matches(Animal animal) {
-            return animal.canSwim();
         }
     }
 }
